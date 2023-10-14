@@ -1,0 +1,109 @@
+Question1- Create an array with the values (1, 2, 3, 4, 5, 6, 7) and shuffle it.
+
+
+import java.util.ArrayList;
+import java.util.Arrays; // Add this import
+import java.util.Collections;
+import java.util.List;
+
+public class ShuffleArray {
+    public static void main(String[] args) {
+        Integer[] array = {1, 2, 3, 4, 5, 6, 7};
+        List<Integer> list = new ArrayList<>(Arrays.asList(array));
+        Collections.shuffle(list);
+        Integer[] shuffledArray = list.toArray(new Integer[0]);
+        System.out.println("Shuffled Array: " + Arrays.toString(shuffledArray));
+    }
+}
+
+
+
+
+
+Question2-Enter a Roman Number as input and convert it to an integer. (Example: IX = 9)
+
+import java.util.*;
+
+public class RomanToInteger {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a Roman Number: ");
+        String romanNumeral = scanner.nextLine().toUpperCase();
+
+        int result = 0;
+        int prevValue = 0;
+
+        for (int i = romanNumeral.length() - 1; i >= 0; i--) {
+            int currentValue = getValue(romanNumeral.charAt(i));
+            result += (currentValue < prevValue) ? -currentValue : currentValue;
+            prevValue = currentValue;
+        }
+
+        System.out.println("Integer value: " + result);
+    }
+
+    public static int getValue(char romanChar) {
+        Map<Character, Integer> romanMap = new HashMap<>();
+        romanMap.put('I', 1);
+        romanMap.put('V', 5);
+        romanMap.put('X', 10);
+        romanMap.put('L', 50);
+        romanMap.put('C', 100);
+        romanMap.put('D', 500);
+        romanMap.put('M', 1000);
+
+        return romanMap.get(romanChar);
+    }
+}
+
+
+
+
+
+
+Question3-Check if the input is pangram or not. (A pangram is a sentence that contains all the alphabets from A to Z)
+
+
+import java.util.*;
+
+public class PangramChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String input = scanner.nextLine().toLowerCase();
+
+        boolean isPangram = input.chars().filter(Character::isAlphabetic).distinct().count() == 26;
+
+        System.out.println(isPangram ? "The input is a pangram." : "The input is not a pangram.");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

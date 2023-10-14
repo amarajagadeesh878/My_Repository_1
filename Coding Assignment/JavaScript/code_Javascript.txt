@@ -1,0 +1,54 @@
+Question1-
+
+function reverseWordsInSentence(sentence) {
+    return sentence.split(' ').map(word => {
+        return word.split('').reverse().join('');
+    }).join(' ');
+}
+
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+readline.question("Enter a sentence: ", (inputSentence) => {
+    const reversedSentence = reverseWordsInSentence(inputSentence);
+    console.log("Reversed Sentence:", reversedSentence);
+    readline.close();
+});
+
+
+
+
+
+
+Question2-
+function sortArrayDescending(arr) {
+    return arr.sort((a, b) => b - a);
+}
+
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+readline.question("Enter an array (comma-separated): ", (inputArray) => {
+    const arr = inputArray.split(',').map(Number);
+    const sortedArray = sortArrayDescending(arr);
+    console.log("Sorted Array (Descending):", sortedArray);
+    readline.close();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+

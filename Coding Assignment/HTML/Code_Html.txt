@@ -1,0 +1,254 @@
+
+Question1--Create a basic calculator using HTML, CSS, and JavaScript with the functionality of add,
+subtract, multiply and divide. Use the following picture forreference
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Simple Calculator using HTML, CSS and JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .calculator {
+            padding: 10px;
+            border-radius: 1em;
+            height: 380px;
+            width: 400px;
+            margin: auto;
+            background-color: #FFFFE0; /* Light Yellow background color */
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.19), 0px 6px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        .display-box {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #D3D3D3; /* Light Grey background */
+            border: solid #ccc 2px; /* Light gray border */
+            color: #333; /* Dark gray text color */
+            border-radius: 5px;
+            width: 100%;
+            height: 65%;
+        }
+
+        #btn {
+            background-color: #ff5a5f; /* Red button background */
+        }
+
+        input[type=button] {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #333; /* Dark gray button background */
+            color: white;
+            border: none; /* No border */
+            width: 100%;
+            border-radius: 5px;
+            height: 70%;
+        }
+
+        input[type=button]:active {
+            background: #555; /* Darker gray for button press effect */
+        }
+    </style>
+</head>
+
+<body>
+    <table class="calculator">
+        <tr>
+            <td colspan="3"> <input class="display-box" type="text" id="result" disabled /> </td>
+            <td> <input type="button" value="C" onclick="clearScreen()" id="btn" /> </td>
+        </tr>
+        <tr>
+            <td> <input type="button" value="1" onclick="display('1')" /> </td>
+            <td> <input type="button" value="2" onclick="display('2')" /> </td>
+            <td> <input type="button" value="3" onclick="display('3')" /> </td>
+            <td> <input type="button" value="/" onclick="display('/')" /> </td>
+        </tr>
+        <tr>
+            <td> <input type="button" value="4" onclick="display('4')" /> </td>
+            <td> <input type="button" value="5" onclick="display('5')" /> </td>
+            <td> <input type="button" value="6" onclick="display('6')" /> </td>
+            <td> <input type="button" value="-" onclick="display('-')" /> </td>
+        </tr>
+        <tr>
+            <td> <input type="button" value="7" onclick="display('7')" /> </td>
+            <td> <input type="button" value="8" onclick="display('8')" /> </td>
+            <td> <input type="button" value="9" onclick="display('9')" /> </td>
+            <td> <input type="button" value="+" onclick="display('+')" /> </td>
+        </tr>
+        <tr>
+            <td> <input type="button" value="." onclick="display('.')" /> </td>
+            <td> <input type="button" value="0" onclick="display('0')" /> </td>
+            <td> <input type="button" value="=" onclick="calculate()" id="btn" /> </td>
+            <td> <input type="button" value="*" onclick="display('*')" /> </td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        function clearScreen() {
+            document.getElementById("result").value = "";
+        }
+
+        function display(value) {
+            document.getElementById("result").value += value;
+        }
+
+        function calculate() {
+            var p = document.getElementById("result").value;
+            var q = eval(p);
+            document.getElementById("result").value = q;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+Question2--Create a survey form with Fields; First Name, Last Name, Date of Birth, Country
+(dropdown), Gender (checkbox), Profession, email, and mobile number. All the input
+fields are necessary to submit the form. Create two buttons Submit and Reset. Reset will
+reset the form while clicking on submit, first, it will check all the fields and necessary
+validations and then a popup will appear displaying all the selected values with labels in
+front of it. On closing the popup, the form should reset all the values. Use the following
+image for reference
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="email"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .radio-label {
+            margin-right: 10px;
+        }
+
+        .submit-button, .reset-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .reset-button {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="surveyForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" required>
+            
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" required>
+            
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" required>
+            
+            <label for="country">Country:</label>
+            <select id="country" required>
+                <option value="">Select Country</option>
+                <option value="usa">United States</option>
+                <option value="canada">Canada</option>
+                <option value="India">India</option>
+                <option value="Japan">Japan</option>
+                <!-- Add more options here -->
+            </select>
+            
+            <label>Gender:</label>
+            <label class="radio-label"><input type="checkbox" name="gender" value="male"> Male</label>
+            <label class="radio-label"><input type="checkbox" name="gender" value="female"> Female</label>
+            
+            <label for="profession">Profession:</label>
+            <input type="text" id="profession" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" required>
+            
+            <button type="submit" class="submit-button">Submit</button>
+            <button type="reset" class="reset-button">Reset</button>
+        </form>
+    </div>
+
+    <div id="popup" class="container" style="display: none;">
+        <h2>Survey Form Submission</h2>
+        <p>First Name: <span id="popupFirstName"></span></p>
+        <p>Last Name: <span id="popupLastName"></span></p>
+        <p>Date of Birth: <span id="popupDob"></span></p>
+        <p>Country: <span id="popupCountry"></span></p>
+        <p>Gender: <span id="popupGender"></span></p>
+        <p>Profession: <span id="popupProfession"></span></p>
+        <p>Email: <span id="popupEmail"></span></p>
+        <p>Mobile Number: <span id="popupMobile"></span></p>
+    </div>
+
+    <script>
+        const surveyForm = document.getElementById('surveyForm');
+        const popup = document.getElementById('popup');
+
+        surveyForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Get form values
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const dob = document.getElementById('dob').value;
+            const country = document.getElementById('country').value;
+            const gender = Array.from(document.querySelectorAll('input[name="gender"]:checked')).map(el => el.value).join(', ');
+            const profession = document.getElementById('profession').value;
+            const email = document.getElementById('email').value;
+            const mobile = document.getElementById('mobile').value;
+
+            // Display values in the popup
+            document.getElementById('popupFirstName').textContent = firstName;
+            document.getElementById('popupLastName').textContent = lastName;
+            document.getElementById('popupDob').textContent = dob;
+            document.getElementById('popupCountry').textContent = country;
+            document.getElementById('popupGender').textContent = gender;
+            document.getElementById('popupProfession').textContent = profession;
+            document.getElementById('popupEmail').textContent = email;
+            document.getElementById('popupMobile').textContent = mobile;
+
+            // Show the popup
+            popup.style.display = 'block';
+
+            // Reset the form
+            surveyForm.reset();
+        });
+
+        document.querySelector('.reset-button').addEventListener('click', function() {
+            popup.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
+
+
+
